@@ -1,6 +1,17 @@
-from flask import Flask
+from flask import Flask, render_template
+import csv
 
 app = Flask(__name__)
+
+# Function to read/import csv to list of dicts
+def read_roster():
+    # students = []
+    with open('Lesson2-Jinja-Loops/roster.csv', 'r') as file:
+        reader = csv.DictReader(file)
+        # for row in reader:
+        #     students.append(row)
+        # return students
+        return [row for row in reader]
 
 @app.route('/')
 def home():
@@ -36,6 +47,12 @@ def home():
         </body>
     </html>
     '''
+    
+@app.route('/roster')
+def roster():
+    students = read_roster()
+    # print(sutdents)
+    return render_template('roster.html', students = students)
 
 if __name__ == '__main__':
     app.run(debug=True)
