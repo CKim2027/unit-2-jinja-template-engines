@@ -6,7 +6,7 @@ app = Flask(__name__)
 # Function to read/import csv to list of dicts
 def read_roster():
     # students = []
-    with open('Lesson2-Jinja-Loops/roster.csv', 'r') as file:
+    with open('Lesson03-Filters/roster.csv', 'r') as file:
         reader = csv.DictReader(file)
         # for row in reader:
         #     students.append(row)
