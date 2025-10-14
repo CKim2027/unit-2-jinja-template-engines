@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>
+        {% block title %}
+        Class Roster App
+        {% endblock title %}
+    </title>
+    {# shared CSS - every page gets this #}
+    <link rel="stylesheet" href="{{url_for('static', filename='roster.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='navbar.css')}}">
+
+    {# Block for page-specificd CSS #}
+    {% block extra_css %} 
+    {% endblock extra_css %}
+</head>
+<body>
+    {# Navigation - appears on every page #}
+    <nav>
+        <a href="/">🏠Home</a>
+        <a href="/roster">🫂Roster</a>
+        <a href="/stats">📊Satistics</a>
+    </nav>
+    
+    {# Main Content area - child templates fill this #}
+    <div class="container">
+        {% block content %}
+        <p>No Content provided</p>
+        {% endblock content %}
+
+        {# Footer - appears on every page #}
+        <footer>
+            <p>&copy; 2025 Advanced Programming Class
+            {% block footer %}
+            Built with Flask & Jinja
+            {% endblock footer %}
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
